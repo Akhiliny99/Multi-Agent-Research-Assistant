@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  research-agent:
+    build: .
+    container_name: research-agent
+    command: uvicorn a2a.research_agent_service:app --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+    env_file: .env
+
+  coordinator-agent:
+    build: .
+    container_name: coordinator-agent
+    command: uvicorn a2a.coordinator_service:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      # override so coordinator reaches research-agent by service name, not localhost
+      - RESEARCH_AGENT_HOST=research-agent
+    depends_on:
+      - research-agent
