@@ -1,10 +1,4 @@
-"""
-Run the full multi-agent research pipeline in-process (single Python process,
-LangGraph handling orchestration + the revision loop).
 
-Usage:
-    python main.py "The impact of retrieval-augmented generation on enterprise search"
-"""
 import sys
 from graph import build_graph
 from config import MAX_REVISION_ITERATIONS
