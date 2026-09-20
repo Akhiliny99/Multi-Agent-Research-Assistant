@@ -6,11 +6,7 @@ llm = ChatGroq(model=GROQ_MODEL, api_key=GROQ_API_KEY, temperature=0)
 
 
 def critic_node(state: AgentState) -> AgentState:
-    """
-    Reviews the draft. If it's good, prefixes the critique with "APPROVED".
-    Otherwise gives concrete revision feedback, which the graph's conditional
-    edge will route back to the researcher node.
-    """
+   
     prompt = (
         "You are a strict editor. Review the draft report below for the given topic. "
         "If it is accurate, complete, and well-structured, respond with exactly "
