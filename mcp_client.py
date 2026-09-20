@@ -1,10 +1,4 @@
-"""
-Thin MCP client wrapper. Spawns the MCP server (mcp_server/search_server.py)
-as a subprocess over stdio and calls its tools.
 
-This is deliberately synchronous-friendly (`call_mcp_tool_sync`) so it can be
-dropped into a plain LangGraph node function without async plumbing.
-"""
 import asyncio
 import os
 from mcp import ClientSession, StdioServerParameters
