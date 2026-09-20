@@ -7,5 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Default command is overridden per-service in docker-compose.yml
 CMD ["python", "main.py"]
