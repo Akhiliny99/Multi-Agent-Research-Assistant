@@ -6,7 +6,7 @@ llm = ChatGroq(model=GROQ_MODEL, api_key=GROQ_API_KEY, temperature=0.3)
 
 
 def writer_node(state: AgentState) -> AgentState:
-    """Synthesizes all accumulated research notes into a coherent draft report."""
+    
     notes = "\n\n".join(state.get("research_notes", []))
     prompt = (
         "Write a well-structured report on the topic below using the research "
